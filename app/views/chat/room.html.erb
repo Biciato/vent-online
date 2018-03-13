@@ -1,0 +1,9 @@
+<div class="messages-set">
+  <%= render 'messages' %>
+  <%= render 'message_form' %>
+</div>
+<% if current_user.admin %>
+  <button id="update-online">Update online</button>
+  <button id="direct-user">Direct User</button>
+  <%= render 'users_online_list' %>
+<% end %>

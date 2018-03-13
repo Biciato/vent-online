@@ -1,0 +1,46 @@
+<div class="center jumbotron">
+  <h1>Welcome to Vent Online</h1>
+
+  <h2>
+    Here is a site for you to talk whatever you want with someone willing to hear
+      whatever you have to say.
+  </h2>
+
+  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+</div>
+<div class="alert alert-danger" role="alert">
+  - It's simple, just sign up and then, all you have to do is click on the chat link and you'll be directed to the chat's page.
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card" style="width: 22rem;">
+      <%= image_tag "clock.jpg", size: "220x180", class: "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text alert alert-danger text-justify" role="alert">The session will be limited to 1 hour to make possible for the site to attend others people</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card" style="width: 22rem;">
+      <%= image_tag "calendar.jpg", size: "220x180", class: "card-img-top" %>
+      <div class="card-body">
+        <p class="card-text alert alert-danger text-justify" role="alert">I'll be available for chatting from monday to friday and from 11:00am to 8:00pm (London Time).</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="chat-link mt-2">
+      <% if user_signed_in? %>
+        <% if admin? %>
+          <%= link_to "CHAT AVAILABLE", chat_url, class: "btn btn-lg btn-success" %> 
+        <% elsif current_user.online_check %>
+          <%= image_tag "chat.png" %><br>
+          <span class="badge badge-danger">CHAT IS BUSY !!!</span>
+        <% else %>
+          <%= image_tag "chat.png" %><br>
+          <%= link_to "CHAT AVAILABLE", chat_url, class: "btn btn-lg btn-success" %> 
+        <% end %>
+      <% end %>  
+    </div>
+  </div>
+</div>  

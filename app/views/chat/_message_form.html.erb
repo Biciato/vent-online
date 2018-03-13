@@ -1,0 +1,17 @@
+<div class="message-input">
+  <form>
+    <div class="form-group">
+      <%= hidden_field_tag "message_user_id", current_user.id %>
+      <textarea class="form-control" type="text" data-behavior="room_speaker" data-remote="true" rows="4"></textarea>
+      <button id="chat-button" class="btn btn-primary pull-right">Submit</button>
+    </div>  
+  </form>
+  
+  <div class="auto-scroll">
+    <%= label_tag "auto-scroll" %>
+    <%= check_box_tag "auto-scroll" %>
+  </div> 
+  
+  <%= link_to "Exit", root_path, class: "btn btn-lg btn-danger" %>
+ 
+</div>
