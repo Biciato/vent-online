@@ -90,4 +90,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   config.force_ssl = true  
+  
+  config.action_cable.url = 'wss://vent-online.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = ['https://vent-online.herokuapp.com']
 end

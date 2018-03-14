@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:c9d5ba6d0737857d2aea530722ca6103@soldierfish.redistogo.com:11977/
   channel_prefix: workspace_production
