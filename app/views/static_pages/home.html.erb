@@ -33,13 +33,27 @@
       <% if user_signed_in? %>
         <% if admin? %>
           <%= link_to "CHAT AVAILABLE", chat_url, class: "btn btn-lg btn-success" %> 
-        <% elsif current_user.online_check %>
+        <% elsif current_user.online_check && current_user.status %>
+          <br>
+          <br>
           <%= image_tag "chat.png" %><br>
           <span class="badge badge-danger">CHAT IS BUSY !!!</span>
-        <% else %>
+        <% elsif current_user.status %>
+          <br>
+          <br>
           <%= image_tag "chat.png" %><br>
           <a href="/chat" class="btn btn-lg btn-success" data-turbolinks="false">CHAT AVAILABLE</a> 
+        <% else %>
+          <br>
+          <br>
+          <br>
+          <h1><em>"The life demands to comprehend the incomprehensible"</em> - Edgar Morin</h1>
         <% end %>
+      <% else %>
+        <br>
+        <br>
+        <br>
+        <h1><em>"The life demands to comprehend the incomprehensible"</em> - Edgar Morin</h1>
       <% end %>  
     </div>
   </div>

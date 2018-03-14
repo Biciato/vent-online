@@ -8,7 +8,7 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     if data.content == "qwertyuiop"
-      Turbolinks.visit("https://vent-online-biciato.c9users.io")
+      Turbolinks.visit("https://vent-online-biciato.c9users.io") if window.location.href == "https://vent-online-biciato.c9users.io/chat"
     else if data.username == 'leandrobiciato58@gmail.com'
       $('#messages').append '<div class="row">' + 
                               '<div class="col-md-6">' + 
@@ -42,10 +42,14 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
   block_user: (user_id) ->
     @perform 'block_user', user_id: user_id
     
+  update_online: (user_id) ->
+    @perform 'update_online', user_id: user_id
+    
 $(document).on 'turbolinks:load', ->
   submit_message_key()
   submit_message_click()
   direct_user()
+  update_online()
 
 submit_message_key = () ->
   $('[data-behavior~=room_speaker]').on 'keydown', (event) ->
@@ -70,6 +74,12 @@ direct_user = () ->
   $('#direct-user').click (event) ->
     id = $('.message-user').find('label').first().text()
     App.chat.block_user id
+    event.preventDefault()
+    
+update_online = () ->
+  $('#update-online').click (event) ->
+    id = $('.message-user').find('label').first().text()
+    App.chat.update_online id
     event.preventDefault()
     
 
