@@ -1,14 +1,10 @@
 class ChatController < ApplicationController
-    before_action :check_online 
-    
-    def room
-      
+   
+  def room
+    if current_user.online_check
+      redirect_to root_path
+    else
+      current_user.online!
     end
-    
-    private
-    
-      def check_online
-        redirect_to root_path if User.where(online: true).count > 0
-      end
-     
+  end
 end

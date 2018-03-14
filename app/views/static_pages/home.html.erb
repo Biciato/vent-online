@@ -38,7 +38,7 @@
           <span class="badge badge-danger">CHAT IS BUSY !!!</span>
         <% else %>
           <%= image_tag "chat.png" %><br>
-          <%= link_to "CHAT AVAILABLE", chat_url, class: "btn btn-lg btn-success" %> 
+          <a href="/chat" class="btn btn-lg btn-success" data-turbolinks="false">CHAT AVAILABLE</a> 
         <% end %>
       <% end %>  
     </div>
