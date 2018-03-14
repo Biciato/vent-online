@@ -8,7 +8,7 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
     if data.content == "qwertyuiop"
-      Turbolinks.visit("https://vent-online-biciato.c9users.io") if window.location.href == "https://vent-online-biciato.c9users.io/chat"
+      Turbolinks.visit("https://vent-online.herokuapp.com") if window.location.href == "https://vent-online.herokuapp.com/chat"
     else if data.username == 'leandrobiciato58@gmail.com'
       $('#messages').append '<div class="row">' + 
                               '<div class="col-md-6">' + 
