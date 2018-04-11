@@ -5,6 +5,5 @@ App.appearance = App.cable.subscriptions.create "AppearanceChannel",
     # Called when the subscription has been terminated by the server
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
+    # show users that has the status online as true
     $('.users-online').append '<p>' + data.email + '</p>'
-    
-    
