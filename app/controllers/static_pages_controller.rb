@@ -1,6 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
-    render status: 503
+    respond_to do |format|
+      format.html { render :html => {:response => 'Service Unavailable' ,:status => 503 }}
+    end
   end
 
   def help
