@@ -30,9 +30,9 @@
   </div>
   <div class="col-sm-6">
     <div class="chat-link mt-2">
-
+      <% if user_signed_in? %>
           <%= link_to "CHAT AVAILABLE", chat_url, class: "btn btn-lg btn-success" %>
-        
+      <% end %>  
     </div>
   </div>
 </div>
